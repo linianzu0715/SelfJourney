@@ -20,7 +20,18 @@ def CheckJob():
             if line_list[0] == "任务编号" or line_list[5] == "0":
                 print(line.strip("\n"))
 
+def CheckWorkJob():
+    print("当前未完成的工作任务：")
+    with open("Storage/WorkJob.csv") as file:
+        for line in file:
+            # 只打印出状态为未完成的状态
+            line_list = line.strip("\n").split(",")
+            if line_list[0] == "任务编号" or line_list[5] == "0":
+                print(line.strip("\n"))
+
 if __name__ == '__main__':
     HelloGamePlayer()
     CheckPlayerInformation()
     CheckJob()
+    print("\n")
+    CheckWorkJob()

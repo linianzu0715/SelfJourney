@@ -9,8 +9,8 @@ def CheckPlayerInformation():
     f.close()
 
 
-def finishJob(JobNumber):
-    EXP_GODEN = alter("Storage/Job.csv", JobNumber, "0","1")
+def finishJob(url,JobNumber):
+    EXP_GODEN = alter(url, JobNumber, "0","1")
     EXP = EXP_GODEN[0]
     GODEN = EXP_GODEN[1]
     file_data = ""
@@ -76,7 +76,8 @@ def alter(file,JobNumber,oldStatus,newStatsu):
 
 if __name__ == '__main__':
     #如果要完成某个JOB，就在方法中填入JOBID，否则就填入0
-    finishJob(3)
+    finishJob("Storage/Job.csv",3)
+    finishJob("Storage/WorkJob.csv", 3)
 
     #如果要将JOB回退为未完成状态，就在方法中填入JOBID，否则就填入0
     #unfinishJOb(1)
