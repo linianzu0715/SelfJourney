@@ -8,6 +8,7 @@ def CheckPlayerInformation():
     while line:
         print(line.strip("\n"))
         line = f.readline()
+    print("\n")
     f.close()
 
 def CheckJob():
