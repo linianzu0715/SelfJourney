@@ -25,10 +25,10 @@ def addJob(jobName,jobType,jobExp,jobGoden):
 
 
 if __name__ == '__main__':
-    jobName = ""
-    jobType = "test"
-    jobExp = 0
-    jobGoden = 0
+    jobName = "基础构建0.1: 任务完成时候增加金币和经验值"
+    jobType = "基础构建"
+    jobExp = 10
+    jobGoden = 10
     addJob(jobName, jobType, jobExp, jobGoden)
 
 

@@ -1,13 +1,36 @@
 import fileinput
+def CheckPlayerInformation():
+    f = open("Storage/PlayerInfomation")
+    line = f.readline()  # 调用文件的 readline()方法
+    print("当前人物信息：")
+    while line:
+        print(line.strip("\n"))
+        line = f.readline()
+    f.close()
+
 
 def finishJob(JobNumber):
     EXP_GODEN = alter("Storage/Job.csv", JobNumber, "0","1")
     EXP = EXP_GODEN[0]
     GODEN = EXP_GODEN[1]
-    if EXP != 0:
-        print("要增加的经验值为"+str(EXP))
-    if GODEN != 0:
-        print("要增加的金币为" + str(GODEN))
+    file_data = ""
+    with open("Storage/PlayerInfomation", "r") as f:
+        for line in f:
+            line_list = line.strip("\n").split(":")
+            if line_list[0] == "经验值":
+                newEXP = int(line_list[1]) + int(EXP)
+                new_line = "经验值:" + str(newEXP) + "\n"
+                file_data += new_line
+            elif line_list[0] == "金币":
+                newGODEN = int(line_list[1]) + int(GODEN)
+                new_line = "金币:" + str(newGODEN) + "\n"
+                file_data += new_line
+            else:
+                file_data += line
+    with open("Storage/PlayerInfomation","w") as f:
+        f.write(file_data)
+    CheckPlayerInformation()
+
 
 
 def unfinishJOb(JobNumber):
@@ -53,7 +76,7 @@ def alter(file,JobNumber,oldStatus,newStatsu):
 
 if __name__ == '__main__':
     #如果要完成某个JOB，就在方法中填入JOBID，否则就填入0
-    finishJob(1)
+    finishJob(3)
 
     #如果要将JOB回退为未完成状态，就在方法中填入JOBID，否则就填入0
     #unfinishJOb(1)
