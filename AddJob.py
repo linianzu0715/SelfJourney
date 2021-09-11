@@ -48,17 +48,17 @@ def addWorkJob(jobName,jobType,jobExp,jobGoden):
 
 
 if __name__ == '__main__':
-    jobName = "新增等级系统"
+    jobName = "增加奖励兑换系统"
     jobType = "基础任务"
     jobExp = 50
     jobGoden = 50
-    #addJob(jobName, jobType, jobExp, jobGoden)
+    addJob(jobName, jobType, jobExp, jobGoden)
 
     workJobName = "检查一下昨天合并到qa分支的换签自动化执行状态"
     workJobType = "普通任务"
     workJobExp = 0
     workJobGoden = 5
-    addWorkJob(workJobName, workJobType, workJobExp, workJobGoden)
+    #addWorkJob(workJobName, workJobType, workJobExp, workJobGoden)
 
 
 
