@@ -47,13 +47,16 @@ def addWorkJob(jobName,jobType,jobExp,jobGoden):
     print("工作任务编号：" + str(num+1) + " 任务名称：《" + jobName + "》")
 
 
+
 if __name__ == '__main__':
-    jobName = "增加奖励兑换系统"
+    #添加个人任务
+    jobName = "加入图形化界面第一版"
     jobType = "基础任务"
-    jobExp = 50
-    jobGoden = 50
+    jobExp = 100
+    jobGoden = 100
     addJob(jobName, jobType, jobExp, jobGoden)
 
+    #添加工作
     workJobName = "检查一下昨天合并到qa分支的换签自动化执行状态"
     workJobType = "普通任务"
     workJobExp = 0

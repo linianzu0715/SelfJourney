@@ -99,7 +99,7 @@ def alter(file,JobNumber,oldStatus,newStatsu):
 
 if __name__ == '__main__':
     #如果要完成某个JOB，就在方法中填入JOBID，否则就填入0
-    finishJob("Storage/Job.csv",10)
+    finishJob("Storage/Job.csv",12)
     #finishJob("Storage/WorkJob.csv", 3)
 
     #如果要将JOB回退为未完成状态，就在方法中填入JOBID，否则就填入0
