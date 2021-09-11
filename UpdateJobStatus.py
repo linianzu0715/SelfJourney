@@ -14,16 +14,21 @@ def finishJob(url,JobNumber):
     EXP = EXP_GODEN[0]
     GODEN = EXP_GODEN[1]
     file_data = ""
+    characterExp = 0
     with open("Storage/PlayerInfomation", "r") as f:
         for line in f:
             line_list = line.strip("\n").split(":")
             if line_list[0] == "经验值":
                 newEXP = int(line_list[1]) + int(EXP)
+                characterExp = int(newEXP)
                 new_line = "经验值:" + str(newEXP) + "\n"
                 file_data += new_line
             elif line_list[0] == "金币":
                 newGODEN = int(line_list[1]) + int(GODEN)
                 new_line = "金币:" + str(newGODEN) + "\n"
+                file_data += new_line
+            elif line_list[0] == "人物等级":
+                new_line = "人物等级:" + str(characterExp//100 + 1) + "\n"
                 file_data += new_line
             else:
                 file_data += line
@@ -38,16 +43,21 @@ def unfinishJOb(url,JobNumber):
     EXP = EXP_GODEN[0]
     GODEN = EXP_GODEN[1]
     file_data = ""
+    characterExp = 0
     with open("Storage/PlayerInfomation", "r") as f:
         for line in f:
             line_list = line.strip("\n").split(":")
             if line_list[0] == "经验值":
                 newEXP = int(line_list[1]) - int(EXP)
+                characterExp = int(newEXP)
                 new_line = "经验值:" + str(newEXP) + "\n"
                 file_data += new_line
             elif line_list[0] == "金币":
                 newGODEN = int(line_list[1]) - int(GODEN)
                 new_line = "金币:" + str(newGODEN) + "\n"
+                file_data += new_line
+            elif line_list[0] == "人物等级":
+                new_line = "人物等级:" + str(characterExp//100 + 1) + "\n"
                 file_data += new_line
             else:
                 file_data += line
@@ -89,11 +99,11 @@ def alter(file,JobNumber,oldStatus,newStatsu):
 
 if __name__ == '__main__':
     #如果要完成某个JOB，就在方法中填入JOBID，否则就填入0
-    finishJob("Storage/Job.csv",5)
+    finishJob("Storage/Job.csv",10)
     #finishJob("Storage/WorkJob.csv", 3)
 
     #如果要将JOB回退为未完成状态，就在方法中填入JOBID，否则就填入0
-    #unfinishJOb("Storage/Job.csv",5)
+    #unfinishJOb("Storage/Job.csv",10)
     #unfinishJOb("Storage/WorkJob.csv",5)
 
     #失效任务
